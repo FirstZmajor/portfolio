@@ -2,7 +2,8 @@
 .large-header {
 	position: relative;
 	width: 100%;
-	background: #333;
+	/* background: #333; */
+	padding-top: 10px;
 	overflow: hidden;
 	background-size: cover;
 	background-position: center center;
@@ -10,14 +11,21 @@
 }
 
 .demo-1 .large-header {
-	background-image: url('../assets/img/demo-1-bg.jpg');
+	background-image: url('../img/tiffany-hwang.jpg');
 }
 .large-header {
-	background-image: url('../assets/img/demo-1-bg.jpg');
+	background-image: url('../img/tiffany-hwang.jpg');
 }
 
+/* .demo-1 .large-header {
+	background-image: url('../img/demo-1-bg.jpg');
+}
+.large-header {
+	background-image: url('../img/demo-1-bg.jpg');
+} */
+
 .demo-2 .large-header {
-	background-image: url('../assets/img/demo-2-bg.jpg');
+	background-image: url('../img/demo-2-bg.jpg');
 	background-position: center bottom;
 }
 
