@@ -33,6 +33,18 @@
     .affix-top {
     background: rgba(44, 62, 80, 0);
     }
+    .fade-enter-active, .fade-leave-active {
+      transition: : opacity .10s
+    }
+    .fade-enter, .fade-leave-to {
+      opacity: 0
+    }
+    .red {
+      background-color: red;
+    }
+    .blue {
+      background-color: blue;
+    }
 </style>
 <body id="page-top" class="index">
 <div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
@@ -108,7 +120,8 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/cake.png" class="img-responsive" alt="Slice of cake">
+                        <!-- <img src="img/portfolio/cake.png" class="img-responsive" alt="Slice of cake"> -->
+                        <img src="assets/img/vue_logo.png" class="img-responsive" alt="Slice of cake">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -347,10 +360,49 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
+                            <h2>Vue Playground</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="assets/img/vue_logo.png" class="img-responsive img-centered" alt="">
+                            
+                            <div class="card-block" id="content">
+                                <div class="row">
+                                    
+                                    <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <p><my-component messageofcomp="A"></my-component></p>
+                                            <br>
+                                        </div>
+                                        <div class="col-md-12 text-left">
+                                            <input v-model="message" placeholder="edit me">
+                                            <br>
+                                            <p>Message is: {{ message }}</p>
+                                            <br>
+                                            <p>Test "For i in 5" =
+                                                <span v-for="i in 5">{{i}},</span>
+                                            </p>
+                                            <br>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <p>
+                                                <h3 v-bind:class="namecolor">
+                                                    change class color</h3>
+                                                <input v-model="namecolor" placeholder='input "red" or "blue"'>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-12 text-left">
+                                            <p>
+                                                <button v-on:click="show = !show">Toggle</button> :
+                                                <transition name="fade_enter">
+                                                    <strong v-if="show"> Hello!, First</strong>
+                                                </transition>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
                             <ul class="list-inline item-details">
                                 <li>Client:
                                     <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
@@ -543,6 +595,24 @@
     <script src="assets/js/rAF.js"></script>
     <script src="assets/js/demo-1.js"></script>
 
-</body>
-
-</html>
+    <script src="VueScript/vue.js"></script>
+<script>
+    Vue.component('my-component', {
+        props: ['messageofcomp'],
+        template: '<div class="col-12"><u> Test Create Component <strong>{{messageofcomp}}</strong></u></div>'
+    })
+    
+    var _content = new Vue({
+        el: "#content",
+        data: {
+            message: "",
+            namecolor: "",
+            i: 0,
+            showText: true,
+            show: true,
+            view: 'v-a',
+            fade_enter: ""
+        },
+    });
+    
+</script>
